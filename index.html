@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--Fuentes-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:wght@400;900&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mingzat&display=swap" rel="stylesheet">    
+    <!---->
+
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!---->
+
+    <link rel="stylesheet" href="/node_modules/owl.carousel/dist/assets/owl.carousel.min.css"/>
+    <link rel="stylesheet" href="/bower_components/owl.carousel/dist/assets/owl.carousel.min.css"/>
+    <link rel="stylesheet" href="/bower_components/owl.carousel/dist/assets/owl.theme.default.css"/>
+
+
+    <!--FontAwesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha512-q3eWabyZPc1XTCmF+8/LuE1ozpg5xxn7iO89yfSOd5/oKvyqLngoNGsx8jq92Y8eXJ/IRxQbEC+FGSYxtk2oiw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!---->
+
+    <!--Favicon-->
+    <link type="image/png" sizes="16x16" rel="icon" href="Assets/Img/logo_parking.svg">
+    <!---->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="styles/styles.css">
+
+    <title>Refugio</title>
+</head>
+<body>
+    <!--NAVBAR-->
+    <nav class="navbar navbar-expand-lg custom-navbar fixed-top">
+        <div class="container col-lg-10 col-md-8 col-sm-10">
+            <a class="navbar-brand navbar-brand-sm" href="index.html">
+                <h1 class="nav-titulo">
+                    <img class="logoimagen" src="Assets/Img/logo_parking.svg" alt="logo">
+                    REFUGIO
+                </h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="pages/contactenos.html">Contactenos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="pages/ingresar.html"><i class="fa-solid fa-user" style="color: #000000;"></i></i> Ingresar</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--Fin NAVBAR-->
+
+    <!--Banner para pantallas pequeñas-->
+    <section id="Seccion-0" class="seccion_mobile">
+        <img src="Assets/Img/banner_mobile.svg" alt="" width="100%">
+    </section>
+
+
+
+    <!-- Sección Banner Inicio-->
+    <section id="Seccion-1" class="home-section" style="margin-top:70px; padding: 0;">
+        <div id="carouselExampleAutoplaying" class="carousel slide carousel-container" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              </div>
+              
+            <div class="carousel-inner contenido-banner">
+              <div class="carousel-item active">
+                <a href="pages/ingresar.html"><img src="Assets/Img/banner1.svg" class="d-block" alt="..." width="100%"></a>
+              </div>
+              <div class="carousel-item">
+                <a href="pages/ingresar.html"><img src="Assets/Img/banner2.svg" class="d-block" alt="..." width="100%"></a>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+          
+    </section>
+    <!-- Fin Sección Banner Inicio-->
+
+    <!--Quienes somos-->
+    <section id="Seccion-2" class="home-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 d-flex flex-column justify-content-center">
+                    <h3 style="color: #1f539c;">Quiénes somos</h3>
+                    <h2>Somos un parqueadero enfocado en ofrecer seguridad y comodidad para tu vehículo.</h2>
+                    <p>Contamos con sistemas de seguridad avanzados y tarifas competitivas para brindarte la mejor experiencia.</p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="somos_container_img d-flex justify-content-center align-items-center">
+                        <img src="Assets/Img/quienessomos.png" alt="" style="width: 80%; height: auto;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!---->
+
+    <!--SECCIÓN NUESTROS SERVICIOS-->
+    <section id="Seccion-3" class="home-section">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <h3 style="color: #1f539c;">Nuestros Servicios</h3>
+                    <H2 style="margin-bottom: 3rem;">Ofrecemos soluciones integrales para el estacionamiento.</H2>
+                    
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-4">
+                    <div class="card" style="width: auto;">
+                        <img src="Assets/Img/sercivioCarro.webp" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h3>Servicio para automobiles</h3>
+                            <p class="card-text">
+                                Nuestro parqueadero para carros ofrece espacios amplios y bien señalizados, pensados para que estacionar sea rápido y sencillo.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-4">
+                    <div class="card" style="width: auto;">
+                        <img src="Assets/Img/servicioMoto.webp" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h3>Servicio para motocicletas</h3>
+                            <p class="card-text">
+                                Contamos con un área exclusiva y segura para el estacionamiento de motocicletas, diseñada para ofrecer comodidad y rapidez.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-4">
+                    <div class="card" style="width: auto;">
+                        <img src="Assets/Img/servicio24.webp" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h3>Servicio 24/7</h3>
+                            <p class="card-text">Ofrecemos servicio de reservas en línea, permitiendo asegurar tu espacio con anticipación. Además, y acceso las 24 horas del día.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!--SECCIÓN porque nosotros-->
+    <section id="Seccion-4" class="home-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 d-flex flex-column justify-content-center">
+                    <h3 style="color: #1f539c;">Puntos clave</h3>
+                    <h2 style="margin-bottom: 3rem;">Al elergirnos </h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="mb-3 d-flex flex-column justify-content-center items__preferer" >
+                        <div class="card-header mb-4">
+                            <img src="Assets/Img/12.svg" alt="" width="56" height="56">
+                        </div>
+                        <div class="">
+                          <h3 style="margin-bottom: 2rem;">Primero la seguridad</h3>
+                          <p class="">En nuestro parqueadero, la seguridad es nuestra máxima prioridad. Contamos con sistemas de vigilancia avanzada que incluyen cámaras de seguridad operando las 24 horas, personal capacitado y controles de acceso estrictos para garantizar la protección total de tu vehículo.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="mb-3 d-flex flex-column justify-content-center items__preferer" >
+                        <div class="card-header mb-4">
+                            <img src="Assets/Img/13.svg" alt="" width="56" height="56">
+                        </div>
+                        <div class="">
+                          <h3 style="margin-bottom: 2rem;">Servicio 24 horas del dia</h3>
+                          <p class="">Ofrecemos un servicio de parqueadero disponible las 24 horas del día, diseñado para brindarte la flexibilidad que necesitas, sin importar el momento. Ya sea que tengas que estacionar durante el día o en la madrugada, siempre encontrarás un espacio disponible. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="mb-3 d-flex flex-column justify-content-center items__preferer" >
+                        <div class="card-header mb-4">
+                            <img src="Assets/Img/14.svg" alt="" width="56" height="56">
+                        </div>
+                        <div class="">
+                          <h3 style="margin-bottom: 2rem;">Atención al cliente</h3>
+                          <p class="">Nos destacamos por ofrecer una atención al cliente de calidad, enfocada en resolver tus necesidades de manera rápida y eficiente. Nuestro equipo está siempre disponible para asistirte en tus preguntas o inquietudes, brindando un servicio cercano y profesional.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--SECCIÓN testigos-->
+    <section id="Seccion-5" class="home-section section-reseñas">
+        <h2 class="reseñas-title">Testimonios</h2>
+        <div class="slider">
+            <div class="item">
+                <h2>Reseña 1</h2>
+                <p>
+                    "Excelente servicio. El parqueadero es muy seguro y siempre encuentro un espacio disponible. El personal es amable y la atención es de primera. ¡Lo recomiendo!"
+                </p>
+                <h3>-Carla Mendoza </h3>
+            </div>
+            <div class="item">
+                <h2>Reseña 2</h2>
+                <p>
+                    "Me gusta mucho que el parqueadero esté abierto las 24 horas. Siempre que lo necesito, puedo dejar mi carro sin problemas. La seguridad me da mucha tranquilidad."
+
+                </p>
+                <h3>-Juan Pérez</h3>
+            </div>
+            <div class="item">
+                <h2>Reseña 3</h2>
+                <p>
+                    "Uso este parqueadero cada vez que voy al centro. Los espacios son amplios y está muy bien ubicado. Además, los precios son muy accesibles comparado con otros lugares."
+
+                </p>
+                <h3>-Ana Beltrán</h3>
+            </div>
+            <div class="item ">
+                <h2>Reseña 3</h2>
+                <p>
+                    "He dejado mi moto aquí varias veces y siempre me siento seguro. Las cámaras de vigilancia y el equipo de seguridad son un gran plus. ¡Definitivamente seguiré usándolo!"
+
+                </p>
+                <h3>-Santiago Ramírez
+                </h3>
+            </div>
+            <div class="item ">
+                <h2>Reseña 4</h2>
+                <p>
+                    "Reservé mi espacio en línea y todo fue muy fácil. Me encanta lo organizado que está el parqueadero y la rapidez del servicio. Sin duda, volveré."
+
+                </p>
+                <h3>-Laura Gómez
+                </h3>
+            </div>
+            <div class="item ">
+                <h2>Reseña 5</h2>
+                <p>
+                    "El mejor parqueadero de la zona. Siempre hay espacio, y el acceso es muy rápido. Lo mejor es que está vigilado las 24 horas, lo que me da mucha confianza."
+
+                </p>
+                <h3>-David Salazar</h3>
+            </div>
+            <div class="item ">
+                <h2>Reseña 6</h2>
+                <p>
+                    "La atención al cliente es excelente. Tuve una consulta y el personal fue muy atento y resolvieron mi duda rápidamente. Muy buen servicio."
+
+                </p>
+                <h3>-Mariana Torres</h3>
+            </div>
+            <div class="item ">
+                <h2>Reseña 7</h2>
+                <p>
+                    "Es perfecto para estacionar en cualquier momento del día. Siempre encuentro lugar y me siento seguro dejando mi vehículo. Muy recomendado."
+
+                </p>
+                <h3>-Carlos Villegas</h3>
+            </div>
+            <div class="item ">
+                <h2>Reseña 8</h2>
+                <p>
+                    "Llevo meses usando este parqueadero y no he tenido ningún inconveniente. El servicio es eficiente y el lugar está muy bien cuidado. ¡Un diez!"
+
+                </p>
+                <h3>-Fernando Acosta</h3>
+            </div>
+            <button id="next">></button>
+            <button id="prev"><</button>
+        </div>
+    </section>
+
+    <!--FOOTER-->
+    <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-12 footer-contact">
+                        <h3>Contacto</h3>
+                        <hr>
+                        <p>Teléfono: 313 984 5468</p>
+                        <p>Email: contacto@refugio.com</p>
+                        <p>Dirección: Ibague-Tolima</p>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12 footer-info">
+                        <h3>Información</h3>
+                        <hr>
+                        <p>Horarios: Lunes a Domingo, 24 horas</p>
+                        <a href="registro.html"><p>Consulta nuestras tarifas al registrarte</p></a>
+                        <p>Formas de pago: Efectivo, tarjeta debito/credito y NEQUI</p>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12 footer-links">
+                        <h3>Enlaces útiles</h3>
+                        <hr>
+                        <ul>
+                            <li><a href="#">Términos y condiciones</a></li>
+                            <li><a href="#">Política de privacidad</a></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 footer-social">
+                        <hr>
+                        <h3>Síguenos</h3>
+                        
+
+                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-facebook fxi" viewBox="0 0 16 16">
+                            <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+                          </svg></a>
+
+                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-twitter-x fxi" viewBox="0 0 16 16">
+                            <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+                          </svg></a>
+
+                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-instagram fxi" viewBox="0 0 16 16">
+                            <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+                          </svg></a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 footer-bottom">
+                        <p>&copy; 2024 Refugio. Todos los derechos reservados.</p>
+                    </div>
+                </div>
+            </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script src="/node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/owl.carousel/dist/owl.carousel.min.js"></script>
+</body>
+</html>
