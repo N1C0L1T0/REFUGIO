@@ -271,10 +271,13 @@ a {
 }
 
 .footer-contact, .footer-info, .footer-links {
-    flex: 1;
-    margin: 10px;
     text-align: start;
+    padding-bottom: 50px;
+}
 
+.footer-contact h3, .footer-info h3, .footer-links h3{
+    font-size: 24px;
+    font-weight: 800;
 }
 
 .footer-social {
