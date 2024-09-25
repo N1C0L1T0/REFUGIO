@@ -99,8 +99,8 @@ a {
 
 /*___________________________________________________________________*/
 
-
 /*Estilos para Navbar*/
+
 
 .custom-navbar {
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.219);
@@ -112,7 +112,9 @@ a {
     margin: 0;
     position: relative;
     left: 15px; 
-    display: inline;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .nav-link.active:hover {
@@ -253,10 +255,6 @@ a {
     }
 }
 
-
-
-
-
 /*___________________________________________________________________*/
 
 
@@ -338,6 +336,7 @@ a {
 
 
 
+/*___________________________________________________________________________________________________________*/
 
 
 
@@ -354,93 +353,11 @@ a {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/** AQUI EMPIEZA LOS ESTILOS DE INGRESAR **/
+/** AQUI EMPIEZA LOS ESTILOS DE INGRESAR Y REGISTROS **/
 
 .ingresar_sect {
     padding-top: 6rem;
     padding-bottom: 4rem;
-
 }
 
 .columnaBienvenida {
@@ -455,9 +372,7 @@ a {
     font-weight: 600;
     color: #000000;
     text-align: center;
-    
 }
-
 
 /* Estilos generales para el formulario */
 #sign_in_1 {
@@ -495,14 +410,6 @@ a {
     color: #000000 !important;
 }
 
-
-/* Estilos para el mensaje de error */
-.form__error-msg {
-    color: #d9534f;
-    font-size: 14px;
-    margin-top: 4px;
-}
-
 /* Estilo para el grupo de recordar */
 .form__remember-me {
     font-size: 0.75rem;
@@ -514,8 +421,6 @@ a {
     margin: 0px 0px 40px 1px;
     width: 100%;
 }
-
-
 
 /* Estilos para el enlace de olvidar contraseña */
 .form__forgot-password {
@@ -536,7 +441,7 @@ a {
     text-align: center;
 }
 
-.button {
+.button1 {
     padding: 12px 20px;
     font-size: 16px;
     color: #fff;
@@ -547,114 +452,30 @@ a {
     transition: background-color 0.3s ease;
 }
 
-.button:hover {
+.button1:hover {
     background-color: #0056b3;
 }
 
-/* Estilos para el badge de reCAPTCHA */
-.grecaptcha-badge {
-    display: none; /* Ocultamos el badge ya que usamos invisible reCAPTCHA */
-}
-
-/* Estilo del campo honeypot */
-.honeypot-field {
-    display: none;
-}
-
-input[type="checkbox"] {
-    display: inline-block;
-    width: auto;
-    padding-top: 0.5rem;
-}
-
-.BotonSignIn  {
+.BotonSignIn, .BotonLogin  {
     background-color: #1D3557 !important;
     border-color: rgb(255, 255, 255) !important;
     color: #ffffff !important; /* Color del texto en negro para contraste */
     width: 100%;
 }
 
-.BotonSignIn:hover {
+.BotonSignIn:hover, .BotonLogin:hover {
     background-color: #6ed4db !important; /* Un ligero cambio de color en el hover */
     border-color: #6ed4db !important;
     color: #000000 !important;
-}
-
-.BotonLogin  {
-    background-color: #1D3557 !important;
-    border-color: rgb(255, 255, 255) !important;
-    color: #ffffff !important; /* Color del texto en negro para contraste */
-}
-
-.BotonLogin:hover {
-    background-color: #6ed4db !important; /* Un ligero cambio de color en el hover */
-    border-color: #6ed4db !important;
-    color: #000000 !important;
-}
-
-
-.checkforgot {
-    padding: 0%;
-    display: flex;
-    justify-content: start;
 }
 
 .forgot {
     padding: 0%;
-    text-align: end;
-    
+    text-align: start;
 }
 
 .form__label--checkbox{
     margin-left: 0.5rem;
-}
-
-
-.remote-sign-in_divider {
-    text-align: center;
-    margin: 20px 0;
-    font-family: "Playfair Display",sans-serif;
-    font-size: 20px;
-    font-weight: 600;
-    color: #000000;
-    text-align: center;
-}
-
-.remote-sign-in_divider span {
-    display: inline-block;
-    position: relative;
-    padding: 0 1em;
-    background-color: #ffffff; /* Color de fondo para que las líneas no toquen el texto */
-}
-.remote-sign-in_divider span::before,
-.remote-sign-in_divider span::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    width: 20%;
-    height: 2px;
-    background-color: #ccc; /* Color de las líneas */
-}
-.remote-sign-in_divider span::before {
-    left: -20%;
-    margin-right: 10px;
-}
-.remote-sign-in_divider span::after {
-    right: -20%;
-    margin-left: 10px;
-}
-
-.sigin-other a:hover{
-    
-    border-color: #6ed4db !important;
-    color: #6ed4db !important;
-}
-
-.sigin-other a {
-    color:#1D3557;
-    font-size: 2rem;
-    margin: 0 10px;
-    text-decoration: none;
 }
 
 .CrearCuenta {
@@ -666,20 +487,6 @@ input[type="checkbox"] {
 .nombreApe {
     padding: 0%;
 }
-
-.columna-1-contacto {
-    padding: 20px;    
-}
-
-.lista-contactos {
-    margin: 0%; 
-    padding: 0%;
-    margin-bottom: 40px;
-}
-
-
-
-/*Media querrys*/
 
 @media (max-width: 576px) {
     .navbar-brand-sm .nav-titulo{
@@ -701,6 +508,211 @@ input[type="checkbox"] {
         font-size: 15px; /* Cambiar el tamaño de la profesión en pantallas pequeñas */
     }
 }
+
+.formulario__registro {
+    margin-top: 70px;
+}
+
+.zandgar__wizard {
+    display: block;
+    height: 100%;
+    position: relative;
+}
+  
+.zandgar__wizard .zandgar__step {
+  display: none;
+}
+.zandgar__wizard .zandgar__step.zandgar__step__active {
+  display: block;
+}
+  
+.col-img {
+  /* https://unsplash.com/photos/yWwob8kwOCk */
+  background: scroll center url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80');
+  background-size: cover;
+  min-height: 90vh;
+}
+  
+.nav-pills .nav-link.active{
+    color: #fff;
+ background-color: #1D3557 !important;
+}
+
+
+.boton_next_formulario{
+    background-color: #1D3557 !important;
+    border-color: #1D3557 !important;
+}
+
+.boton_next_formulario:hover{
+    background-color: #6ed4db !important; 
+    border-color: #6ed4db !important;
+}
+
+
+.boton_previous_formulario {
+    color: #1D3557;
+    border-color: #1D3557 !important;
+}
+
+.boton_previous_formulario:hover {
+    background-color: #1D3557 !important;
+    border-color: #1D3557 !important;
+}
+
+@media (max-width:576px) {
+    .formulario__registro {
+        margin: 150px 0;
+    }
+}
+
+
+
+
+
+
+/*___________________________________________________________________________________________________________*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Formulario Wizard*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*__________________________________________________________________________________________________________*/
 
 
 
@@ -842,7 +854,7 @@ input[type="checkbox"] {
 }
 
 
-/*Panle reservas*/
+/*Panel reservas*/
 
 .panel-reservas {  
     background-color: rgb(255, 255, 255);
