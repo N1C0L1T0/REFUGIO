@@ -137,7 +137,22 @@
         </div>
         </div><!-- end row -->
     </div> <!--  big container -->
-
-    
-
 </div>
+
+else if (step === '2. Perfil') {
+  // Validación del nombre y apellido en el paso 2
+  const firstNameInput = document.querySelector("input[name='first-name']");
+  const lastNameInput = document.querySelector("input[name='last-name']");
+  if (!firstNameInput.value.trim() || !lastNameInput.value.trim()) {
+      alert('Por favor, complete su nombre y apellido');
+      isValid = false;
+  }
+} else if (step === '3. Vehiculo') {
+  // Validación del vehículo en el paso 3
+  const vehicleType = document.querySelector("select[name='tipoVehiculo']");
+  const licensePlate = document.querySelector("input[name='placa']");
+  if (!vehicleType.value || !licensePlate.value.trim()) {
+      alert('Por favor, complete la información del vehículo');
+      isValid = false;
+  }
+}
