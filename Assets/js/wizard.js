@@ -132,7 +132,7 @@ function validarCampo(pasoActual) {
 
         if (!regex.test(placaVal) || placaVal.length !== 6) {
             let mensajeError = document.getElementById("error-placa");
-            mensajeError.innerHTML = "La placa debe tener exactamente 6 caracteres, los primeros 3 letras y los últimos 3 pueden ser letras o números.";
+            mensajeError.innerHTML = "La placa debe tener exactamente 6 caracteres sin espacios, los primeros 3 letras y los últimos 3 pueden ser letras o números.";
             mensajeError.style.color = "red";
             errores.push("error-placa"); // Agrega el error a la lista
         } else {

@@ -465,17 +465,17 @@ a {
     background-color: #0056b3;
 }
 
-.BotonSignIn, .BotonLogin  {
-    background-color: #1D3557 !important;
-    border-color: rgb(255, 255, 255) !important;
-    color: #ffffff !important; /* Color del texto en negro para contraste */
+.BotonSignIn, .BotonLogin, .BotonRecuperar  {
+    background-color: #1D3557;
+    border-color: #1D3557;
+    color: #ffffff; /* Color del texto en negro para contraste */
     width: 100%;
 }
 
-.BotonSignIn:hover, .BotonLogin:hover {
-    background-color: #6ed4db !important; /* Un ligero cambio de color en el hover */
-    border-color: #6ed4db !important;
-    color: #000000 !important;
+.BotonSignIn:hover, .BotonLogin:hover, .BotonRecuperar:hover {
+    background-color: #6ed4db; /* Un ligero cambio de color en el hover */
+    border-color: #6ed4db;
+    color: #000000;
 }
 
 .forgot {
