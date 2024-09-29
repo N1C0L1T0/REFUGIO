@@ -1,16 +1,49 @@
+//================================================================================================================
+// ACA EMPIEZA LAS VALIDACIONES DEL WIZARD
+//================================================================================================================
 
+// Función para validar los capos del formulario
 function validarCampo(pasoActual) {
-    
+
+    let errores = []; // array para almacenar los errores
+
+    // Obtener valores del formulario
+    let valCorreo = document.getElementById("correo").value.trim();             // obtengo correo
+    let password = document.getElementById("contra").value.trim();              // obtengo contraseña
+    let nombre1 = document.getElementById("nombre").value.trim()                // obtengo nombre
+    let apellido1 = document.getElementById("apellido").value.trim();           // obtengo apellido
+    let numero1 = document.getElementById("telefono").value.trim();             // obtengo telefono
+    let tipoVehiculo1 = document.getElementById("tipoVehiculo").value.trim();   // obtengo tipo de vehiculo
+    let modelo1 = document.getElementById("modelo").value.trim();               // obtengo modelo del vehiculo
+    let placa1 = document.getElementById("placa").value.trim();                 // obtengo placa del vehiculo
+
+    // Ajuste de datos para almacenar
+    // Convertir el nombre y apellido a capitalizar
+    nombre1 = nombre1.charAt(0).toUpperCase() + nombre1.slice(1).toLowerCase();
+    apellido1 = apellido1.charAt(0).toUpperCase() + apellido1.slice(1).toLowerCase();
+
+    // Convertir placa y modelo a mayúsculas
+    placa1 = placa1.toUpperCase();
+    modelo1 = modelo1.toUpperCase();
+
+    // Asignar los valores transformados de nuevo a los campos
+    $("#nombre").val(nombre1);
+    $("#apellido").val(apellido1);
+    $("#placa").val(placa1);
+    $("#modelo").val(modelo1);
+
+
+    // Variables de validación
+    const valEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // para email - Expresión regular para obtener un email
+    const uu = /^[a-zA-ZÀ-ÿ]+$/;                   // para nombre - Expresión regular para una sola palabra con letras
+    const valApellido = /^[a-zA-ZÀ-ÿ]+$/;          // para apellido - Expresión regular para una sola palabra con letras
+    const regex = /^[A-Za-z]{3}[A-Za-z0-9]{3}$/;   // para placa - Expresión regular para 3 primeras solo letras y las otras 3 letras y num
+
 
     if (pasoActual === '1. Cuenta') {
-        let errores = []; // array para almacenar los errores
-        let valCorreo = document.getElementById("correo");
-        let correoValue = valCorreo.value.trim();
-
+        
         // Validar email
-        let valEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-        if (!valEmail.test(correoValue)) {
+        if (!valEmail.test(valCorreo)) {
             let mensajeError = document.getElementById("error-correo");
             mensajeError.innerHTML = "Por favor, Ingrese un correo valido";
             mensajeError.style.color = "red";
@@ -22,10 +55,7 @@ function validarCampo(pasoActual) {
         }
 
         // Validación de la contraseña
-        let password = document.getElementById("contra"); // Asegúrate que el ID sea correcto
-        let passwordVal = password.value.trim(); // Añadido trim() para eliminar espacios
-
-        if (passwordVal.length < 6 || passwordVal === "") {
+        if (password.length < 6 || password === "") {
             let mensajeError = document.getElementById("error-pass");
             mensajeError.innerHTML = "La contraseña debe tener al menos 6 caracteres";
             mensajeError.style.color = "red";
@@ -39,22 +69,18 @@ function validarCampo(pasoActual) {
         if (errores.length === 0) {
             return true
         } else {
+            errores.length = 0;
             return false
         }
-
 
     } 
     
     if (pasoActual === '2. Perfil') {
-        let errores = []; // array para almacenar los errores
+        
         //Validar nombre
-        let nombre1 = document.getElementById("nombre")
-        let nombreVal = nombre1.value.trim();
-        const uu = /^[a-zA-Z ]*$/;
-
-        if (!nombreVal.match(uu) || nombreVal === "") {
+        if (!nombre1.match(uu) || nombre1 === "") {
             let mensajeError = document.getElementById("error-nom");
-            mensajeError.innerHTML = "Por favor, Ingrese un nombre valido";
+            mensajeError.innerHTML = "Por favor, Ingrese un nombre valido, solo UNO";
             mensajeError.style.color = "red";
             errores.push("error-nom"); // La contraseña no es válida
         } else {
@@ -62,16 +88,11 @@ function validarCampo(pasoActual) {
             let mensajeError = document.getElementById("error-nom");
             mensajeError.innerHTML = "";
         }
-    
 
         //Validad apellido
-        let apelllido1 = document.getElementById("apellido")
-        let apellidoVal = apelllido1.value.trim()
-        let valApellido = /^[a-zA-ZÀ-ÿ]+$/; // Expresión regular para una sola palabra con letras
-
-        if (!valApellido.test(apellidoVal) || apellidoVal === "") {
+        if (!valApellido.test(apellido1) || apellido1 === "") {
             let mensajeError = document.getElementById("error-ape");
-            mensajeError.innerHTML = "Por favor, Ingrese un apellido valido";
+            mensajeError.innerHTML = "Por favor, Ingrese un apellido valido, Solo UNO";
             mensajeError.style.color = "red";
             errores.push("error-ape"); // Agrega el error a la lista
         } else {
@@ -81,10 +102,7 @@ function validarCampo(pasoActual) {
         }
 
         // Valida numero de telefono 
-        let numero1 = document.getElementById("telefono")
-        let numeroVal = numero1.value.trim()
-
-        if (numeroVal === "" || numeroVal.length !== 10) {
+        if (numero1 === "" || numero1.length !== 10) {
             let mensajeError = document.getElementById("error-tel");
             mensajeError.innerHTML = "Por favor, Ingrese un telefono valido";
             mensajeError.style.color = "red";
@@ -99,22 +117,20 @@ function validarCampo(pasoActual) {
         if (errores.length === 0) {
             return true
         } else {
+            errores.length = 0;
             return false
         }
     
     }
 
     if (pasoActual === '3. Vehiculo') {
-        let errores = [];
 
         // Valida modelo 
-        let modelo1 = document.getElementById("modelo")
-        let modeloVal = modelo1.value.trim()
-
-        if (modeloVal === "") {
+        if (modelo1 === "") {
             let mensajeError = document.getElementById("error-model");
             mensajeError.innerHTML = "Por favor, Ingrese un modelo valido";
             mensajeError.style.color = "red";
+            console.log("error en modelo");
             errores.push("error-model"); // Agrega el error a la lista
         } else {
             // Limpiar mensaje de error si el modelo es válido
@@ -122,18 +138,12 @@ function validarCampo(pasoActual) {
             mensajeError.innerHTML = "";
         }
 
-
         // valida placa
-        let placa1 = document.getElementById("placa");
-        let placaVal = placa1.value.trim(); // Eliminar espacios al inicio y final
-
-        // Expresión regular para validar
-        let regex = /^[A-Za-z]{3}[A-Za-z0-9]{3}$/;
-
-        if (!regex.test(placaVal) || placaVal.length !== 6) {
+        if (!regex.test(placa1) || placa1.length !== 6) {
             let mensajeError = document.getElementById("error-placa");
             mensajeError.innerHTML = "La placa debe tener exactamente 6 caracteres sin espacios, los primeros 3 letras y los últimos 3 pueden ser letras o números.";
             mensajeError.style.color = "red";
+            console.log("error en placa");
             errores.push("error-placa"); // Agrega el error a la lista
         } else {
             // Limpiar mensaje de error si es válida
@@ -143,14 +153,114 @@ function validarCampo(pasoActual) {
 
         // Retornar true solo si hay cero errores
         if (errores.length === 0) {
+
+            // Crear un objeto "diccionario" con los valores del formulario
+            var dicc_datos = {
+                Correo: valCorreo,
+                Contraseña: password,
+                Nombre: nombre1,
+                Apellido: apellido1,
+                Telefono: numero1,
+                TipoVehiculo: tipoVehiculo1,
+                Modelo: modelo1,
+                Placa: placa1
+            };
+
+            // se envia la información a la BD por una petición fech
+            registrarPost(dicc_datos);
+
             return true
         } else {
+            errores.length = 0;
             return false
         }
-
     }
 }
 
+// función para realizar petición fetch, enviar peticiones HTTP al servidor (PETICIÓN POST ENVIAR REGISTRO)
+function registrarPost(dicc_datos) {
+
+    let ladata = new FormData();
+    ladata.append("CORREO", dicc_datos.Correo); 
+    ladata.append("CONTRASEÑA", dicc_datos.Contraseña);
+    ladata.append("NOMBRE", dicc_datos.Nombre); 
+    ladata.append("APELLIDO", dicc_datos.Apellido); 
+    ladata.append("TELEFONO", dicc_datos.Telefono); 
+    ladata.append("TIPOVEHICULO", dicc_datos.TipoVehiculo); 
+    ladata.append("MODELO", dicc_datos.Modelo); 
+    ladata.append("PLACA", dicc_datos.Placa); 
+
+    // FETCH DE INGRESAR DATOS A LA BD
+    fetch("../db/registro.php", {
+        method: "POST",
+        body: ladata,
+    })
+    .then(response => response.json()) // Convierte la respuesta en JSON
+    .then(function(datos) {
+        const errorMessageSpan = document.getElementById('error-message');
+        errorMessageSpan.textContent = ''; // Limpiar mensaje anterior
+    
+        if (datos.rta === "OK") {
+            console.log("Datos insertados correctamente");
+            // Aquí podrías redirigir a la página de éxito
+            window.location.href = "../pages/registro_exitoso.html";
+        }
+        if (datos.rta === "ERROR") {
+            alert("Ups, " + datos.message);
+            // Mostrar el mensaje de error en el span
+            errorMessageSpan.textContent = datos.message;
+            errorMessageSpan.style.display = 'block'; // Asegúrate de mostrar el span
+        }
+    })
+    .catch(function (error) {
+        console.error(error);
+        // Aquí también podrías mostrar un mensaje de error genérico si es necesario
+    });
+    
+
+}
+
+// funcion para cuando de click en el primer paso
+$("#next1-button").click(function (e) {
+    e.preventDefault(); // Prevenir el comportamiento predeterminado del botón
+
+    const pasoActual = wizard.getCurrentStep().label;
+
+    const isValid = validarCampo(pasoActual); // Validar el formulario
+
+    if (isValid) {
+        // Cambiar al siguiente paso usando el método del wizard
+        wizard.revealStep('2. Perfil'); // Cambia al siguiente paso (asegúrate de usar el nombre correcto)
+        onStepChange(wizard, 'steps-native'); // Actualiza la navegación
+    } else {
+        // Aquí puedes mostrar un mensaje de error si es necesario
+    }
+});
+
+// funcion para cuando de click en el paso segundo
+$("#next2-button").click(function (e) {
+    e.preventDefault(); // Prevenir el comportamiento predeterminado del botón
+
+    const pasoActual = wizard.getCurrentStep().label;
+    console.log(pasoActual);
+    const isValid = validarCampo(pasoActual); // Validar el formulario
+    
+    if (isValid) {
+        // Cambiar al siguiente paso usando el método del wizard
+        wizard.revealStep('3. Vehiculo'); // Cambia al siguiente paso (asegúrate de usar el nombre correcto)
+        onStepChange(wizard, 'steps-native'); // Actualiza la navegación
+    } else {
+        // Aquí puedes mostrar un mensaje de error si es necesario
+    }
+});
+
+
+
+
+
+//================================================================================================================
+// ACA EMPIEZA LAS FUNCIONALIDADES DEL WIZARD 
+//================================================================================================================
 
 /**
  * buildStepsBreadcrumb - Crea una barra de navegación tipo breadcrumbs basada en los pasos de un wizard.
@@ -213,6 +323,7 @@ function buildStepsBreadcrumb(wizard, element, steps) {
                 }
             });
             
+
             // Añadir el enlace <a> dentro del elemento <li>
             $li.appendChild($a);
 
@@ -279,64 +390,6 @@ const wizard = new window.Zangdar('#wizard', {
 
 // Inicializa la barra de navegación de pasos cuando el wizard se carga por primera vez
 onStepChange(wizard, 'steps-native');
-
-
-
-// funcion para cuando de click en el primer paso
-$("#next1-button").click(function (e) {
-    e.preventDefault(); // Prevenir el comportamiento predeterminado del botón
-
-    const pasoActual = wizard.getCurrentStep().label;
-
-    const isValid = validarCampo(pasoActual); // Validar el formulario
-
-    if (isValid) {
-        // Cambiar al siguiente paso usando el método del wizard
-        wizard.revealStep('2. Perfil'); // Cambia al siguiente paso (asegúrate de usar el nombre correcto)
-        onStepChange(wizard, 'steps-native'); // Actualiza la navegación
-    } else {
-        // Aquí puedes mostrar un mensaje de error si es necesario
-    }
-});
-
-// funcion para cuando de click en el paso segundo
-$("#next2-button").click(function (e) {
-    e.preventDefault(); // Prevenir el comportamiento predeterminado del botón
-
-    const pasoActual = wizard.getCurrentStep().label;
-    console.log(pasoActual);
-    const isValid = validarCampo(pasoActual); // Validar el formulario
-    
-    if (isValid) {
-        // Cambiar al siguiente paso usando el método del wizard
-        wizard.revealStep('3. Vehiculo'); // Cambia al siguiente paso (asegúrate de usar el nombre correcto)
-        onStepChange(wizard, 'steps-native'); // Actualiza la navegación
-    } else {
-        // Aquí puedes mostrar un mensaje de error si es necesario
-    }
-});
-
-// funcion para cuando de click en el paso tercero
-$("#submit-button").click(function (e) {
-    e.preventDefault(); // Prevenir el comportamiento predeterminado del botón
-
-    const pasoActual = wizard.getCurrentStep().label;
-    console.log(pasoActual);
-    const isValid = validarCampo(pasoActual); // Validar el formulario
-    
-    if (isValid) {
-        // Si la validación es exitosa, enviar el formulario o realizar otra acción
-        console.log("BIEN")
-        document.getElementById("miFormulario").submit(); // Para enviar el formulario
-        
-        // o puedes hacer otra acción, como mostrar un mensaje de éxito.
-    } else {
-        // Manejo de errores, ya se hace en la función de validación
-        console.log("Errores en la validación del paso 3.");
-    }
-});
-
-
 
 // Funcion para ingresar la imagen de la foto de perfil
 function readURL(input) {
