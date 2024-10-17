@@ -36,7 +36,7 @@
     <!--NAVBAR-->
     <nav class="navbar navbar-expand-lg custom-navbar fixed-top">
         <div class="container col-lg-10 col-md-8 col-sm-10">
-            <a class="navbar-brand navbar-brand-sm" href="index.html">
+            <a class="navbar-brand navbar-brand-sm" href="../index.html">
                 <h1 class="nav-titulo">
                     <img class="logoimagen" src="../Assets/Img/logo_parking.svg" alt="logo">
                     REFUGIO
@@ -50,10 +50,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="contactenos.html">Contactenos</a>
+                        <a class="nav-link active" href="contactenos.html">Contactanos</a>
                     </li>
-                    <li class="nav-item2">
-                        <a class="nav-link active" href="ingresar.html"><i class="fa-solid fa-user" style="color: #000000;"></i></i> Ingresar</a>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../index.html">Inicio</a>
                     </li>
                 </ul>
             </div>
@@ -66,19 +66,21 @@
         <div class="container-fluid perfil-reserva">
             <div class="row">
                 <div class="col-lg-2">
-                    <img src="../Assets/Img/foto-perfil.jpeg" alt="" class="foto-perfil">
+                    <img src="../Assets/Img/default-avatar.png" alt="" class="foto-perfil">
                 </div>
-                <div class="col-lg-4 contenido-perfil">
-                    <h3>NICOLAS TRUJILLO</h3>
+                <div class="col-lg-3 contenido-perfil d-flex flex-column justify-content-center">
+                    <h3><span id="nombre"></span> <span id="apellido"></span></h3>
                     <hr>
-                    <p>Vehiculo: <span style="color: gray;">Jeep Wangler 2025</span></p>
-                    <p>Placa: <span style="color: gray;">NTM-016</span></p>
+                    <p>Vehiculo: <span id="vehiculo" style="color: gray;"></span></p>
+                    <p>Placa: <span id="placa" style="color: gray;"></span></p>
                 </div>
-                <div class="col-lg-3 contenido-perfil">
+                <div class="col-lg-2 d-flex justify-content-center align-items-center">
                     <h3 style="text-align: center;">REFUGIO CALLE 60</h3>
+                </div>
+                <div class="col-lg-2 contenido-perfil d-flex justify-content-center align-items-center">
                     <P id="fecha"></P>
                 </div>
-                <div class="col-lg-3 reloj-col">
+                <div class="col-lg-2 reloj-col d-flex justify-content-center align-items-center">
                     <p id="reloj"></p>
                 </div>
             </div>
@@ -170,7 +172,11 @@
     </section>
 
 
+    <!-- Carga de jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!--Este script es solo para la fehca y el reloj-->
     <script>
         function actualizarFechaYHora() {
           const ahora = new Date();
@@ -200,8 +206,10 @@
             event.preventDefault(); // Evita que el enlace navegue a otro lado
             this.classList.add('clicked'); // Añade una clase para cambiar la apariencia
         });
+    </script>
 
-      </script>
+    <script src="../Assets/js/valIngresar.js"></script>
+    
 
 </body>
 </html>

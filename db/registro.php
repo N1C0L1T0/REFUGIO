@@ -1,7 +1,11 @@
 <?php 
+session_start();  // Iniciar la sesión al principio
 
 // Incluyo la conexión a la base de datos
 include("con_db.php");
+
+// Establecer el tipo de contenido
+header('Content-Type: application/json');  // Asegúrate de que la respuesta sea JSON
 
 // Obtener valores del formulario a variables PHP
 $email = $_POST['CORREO'];
@@ -13,8 +17,8 @@ $tipoVehiculo = $_POST['TIPOVEHICULO'];
 $modelo = $_POST['MODELO'];
 $placa = $_POST['PLACA'];
 
-// Hashear la contraseña
-$contraseñaHashMd5 = md5($password);
+// Hashear la contraseña de forma segura
+$contraseñaHash = password_hash($password, PASSWORD_DEFAULT);
 
 // Verificar si el correo ya existe
 $sqlCheckEmail = "SELECT * FROM `clientes` WHERE `Correo` = ?";
@@ -57,12 +61,16 @@ if (mysqli_num_rows($resultEmail) > 0) {
     $qry1 = mysqli_prepare($conexion, $sql1);
 
     // Vincular los parámetros
-    mysqli_stmt_bind_param($qry1, 'sssss', $nombre, $apellido, $telefono, $email, $contraseñaHashMd5);
+    mysqli_stmt_bind_param($qry1, 'sssss', $nombre, $apellido, $telefono, $email, $contraseñaHash);
 
     // Ejecutar la consulta
     if (mysqli_stmt_execute($qry1)) {
         // Obtener el ID del cliente recién insertado
         $id_cliente = mysqli_insert_id($conexion);
+
+        // Establecer las variables de sesión para el nuevo usuario
+        $_SESSION['user_id'] = $id_cliente;
+        $_SESSION['user_email'] = $email; // Puedes agregar más datos si es necesario
 
         // Insertar en la tabla carros
         $sql2 = "INSERT INTO `carros`(`Id_Placa`, `Id_tipoVehiculo`, `Modelo`, `Id_Cliente`) 
@@ -87,9 +95,6 @@ if (mysqli_num_rows($resultEmail) > 0) {
         // Respuesta JSON de error en la inserción de clientes
         $response = array('rta' => 'ERROR', 'message' => 'Error al insertar en la tabla clientes: ' . mysqli_error($conexion));
     }
-
-    // Establecer el tipo de contenido
-    header('Content-Type: application/json');
 
     // Enviar la respuesta JSON
     echo json_encode($response);

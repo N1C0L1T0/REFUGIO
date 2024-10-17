@@ -220,6 +220,31 @@ function registrarPost(dicc_datos) {
 
 }
 
+// Suponiendo que este código se ejecuta después del registro
+fetch("../db/obtener_datos_usuario.php")
+    .then(response => response.json())
+    .then(data => {
+        if (data.rta === 'OK') {
+            mostrarDatosUsuario(data.data); // Llama a la función para mostrar los datos
+        } else {
+            console.error(data.message); // Manejar el error
+        }
+    })
+    .catch(error => {
+        console.error("Error al obtener los datos:", error);
+    });
+
+
+    function mostrarDatosUsuario(datos) {
+        // Actualiza el contenido de los elementos con los datos del usuario
+        document.getElementById("nombre").textContent = datos.Nombre;
+        document.getElementById("apellido").textContent = datos.Apellido;
+        document.getElementById("vehiculo").textContent = datos.Modelo; // Asegúrate de que este campo coincida con el modelo que obtuviste
+        document.getElementById("placa").textContent = datos.Id_Placa; // Asegúrate de que este campo coincida con la placa que obtuviste
+    }
+    
+
+
 // funcion para cuando de click en el primer paso
 $("#next1-button").click(function (e) {
     e.preventDefault(); // Prevenir el comportamiento predeterminado del botón

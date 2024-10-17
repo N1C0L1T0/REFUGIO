@@ -1,5 +1,5 @@
 function validarCampo(){
-    let email = document.getElementById("user[email]");
+    let email = document.getElementById("correo");
     let emailVal = email.value.trim();
     let validar = true;
     let valEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -16,7 +16,7 @@ function validarCampo(){
     }
 
     // Validación de la contraseña
-    let password = document.getElementById("user[password]"); // Asegúrate que el ID sea correcto
+    let password = document.getElementById("contra"); // Asegúrate que el ID sea correcto
     let passwordVal = password.value.trim(); // Añadido trim() para eliminar espacios
 
     if (passwordVal === "") {
@@ -30,8 +30,57 @@ function validarCampo(){
         mensajeError.innerHTML = "";
     }
 
-    return validar
+    if (validar === true) {
+
+        // Crear un objeto "diccionario" con los valores del formulario
+        var dicc_datos = {
+            Correo: emailVal,
+            Contraseña: passwordVal,
+        };
+
+        // se envia la información a la BD por una petición fech
+        loginPost(dicc_datos);
+        return true
+    } else {
+        return false
+    }
 }
+
+function loginPost(dicc_datos) {
+    let ladata = new FormData();
+    ladata.append("CORREO", dicc_datos.Correo.trim());  // Asegúrate de limpiar espacios
+    ladata.append("CONTRASEÑA", dicc_datos.Contraseña.trim());
+
+    // FETCH DE ENVIAR DATOS AL SERVIDOR PARA INICIO DE SESIÓN
+    fetch("../db/login.php", {
+        method: "POST",
+        body: ladata,
+    })
+    .then(response => response.text())  // Usar text() temporalmente para ver qué responde el servidor
+    .then(function(datos) {
+        console.log("Respuesta recibida:", datos);  // Ver exactamente qué está recibiendo
+        
+        try {
+            const json = JSON.parse(datos);  // Intentar parsear manualmente
+            if (json.rta === 'OK') {
+                console.log('Inicio de sesión exitoso');
+                window.location.href = "../pages/reservar.html"; // Redirigir al dashboard
+            } else {
+                alert('Error: ' + json.message);  // Mostrar mensaje de error
+            }
+        } catch (e) {
+            console.error("Error al parsear JSON:", e);
+            alert("Error inesperado en el servidor. Intente nuevamente."); // Mensaje más genérico para el usuario
+        }
+    })
+    .catch(function (error) {
+        console.error("Error en la petición:", error);
+        alert("Error al comunicarse con el servidor. Intente nuevamente."); // Manejo de errores de red
+    });
+}
+
+
+
 
 $("#botonIngresar").click(function (e) {
     e.preventDefault(); // Prevenir el comportamiento predeterminado del botón
@@ -39,13 +88,41 @@ $("#botonIngresar").click(function (e) {
     const isValid = validarCampo(); // Validar el formulario
     
     if (isValid) {
-        // Si la validación es exitosa, enviar el formulario o realizar otra acción
-        console.log("BIEN")
-        document.getElementById("miFormulario").submit(); // Para enviar el formulario
-        
-        // o puedes hacer otra acción, como mostrar un mensaje de éxito.
+        // Obtener los datos del formulario
+        let dicc_datos = {
+            Correo: document.getElementById("correo").value,
+            Contraseña: document.getElementById("contra").value
+        };
+
+        // Llamar a la función para enviar los datos mediante fetch
+        loginPost(dicc_datos);
     } else {
-        // Manejo de errores, ya se hace en la función de validación
         console.log("Errores en la validación");
     }
 });
+
+
+
+// Suponiendo que este código se ejecuta después del inicio de sesión
+fetch("../db/obtener_datos_usuario.php")
+    .then(response => response.json())
+    .then(data => {
+        if (data.rta === 'OK') {
+            mostrarDatosUsuario(data.data); // Llama a la función para mostrar los datos
+        } else {
+            console.error(data.message); // Manejar el error
+        }
+    })
+    .catch(error => {
+        console.error("Error al obtener los datos:", error);
+    });
+
+
+    function mostrarDatosUsuario(datos) {
+        // Actualiza el contenido de los elementos con los datos del usuario
+        document.getElementById("nombre").textContent = datos.Nombre;
+        document.getElementById("apellido").textContent = datos.Apellido;
+        document.getElementById("vehiculo").textContent = datos.Modelo; // Asegúrate de que este campo coincida con el modelo que obtuviste
+        document.getElementById("placa").textContent = datos.Id_Placa; // Asegúrate de que este campo coincida con la placa que obtuviste
+    }
+    
