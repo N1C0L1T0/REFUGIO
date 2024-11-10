@@ -216,7 +216,6 @@ function registrarPost(dicc_datos) {
         console.error(error);
         // Aquí también podrías mostrar un mensaje de error genérico si es necesario
     });
-    
 
 }
 

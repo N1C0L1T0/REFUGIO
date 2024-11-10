@@ -16,6 +16,7 @@ if ($conexion->connect_error) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    
     $email = trim($_POST['CORREO']);
     $password = trim($_POST['CONTRASEÑA']);
 

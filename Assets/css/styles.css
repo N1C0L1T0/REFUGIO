@@ -802,14 +802,28 @@ select {
     z-index: 1001; /* Asegura que esté por encima del elemento inferior */
 }
 
+@media (max-width: 425px) {
+    .perfil-reserva{
+        padding: 0;
+    }
+}
+
 .foto-perfil {
-    padding: 20px;
-    width: 100%;
+    padding: 10px;
+    width: 10rem;
+    height: 10rem;
     border-radius: 50px;
 }
 
+@media (max-width: 992px) {
+    .foto-perfil {
+        width: 150px;
+        padding: 20px;
+    }
+}
+
 .contenido-perfil {
-    padding: 25px;
+    padding: 25px 25px;
 }
 
 
@@ -867,6 +881,16 @@ select {
 .container-reservas {
     padding: 80px 50px 80px 50px;
     box-shadow: 0px 0px 12px #00000015;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 50px;
+}
+
+@media (max-width: 768px) {
+    .container-reservas {
+        gap: 100px;
+    }
 }
 
 .container-reservas-col h3{
@@ -926,6 +950,13 @@ select {
     border-color: #6ed4db;
 }
 
+.formularioReserva{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+}
+
 
 /*Panel reservas*/
 
@@ -945,6 +976,14 @@ select {
       "A3 calle B11 B12 B13 B14 B15 B16 B17 B18 B19 B20 calle2 A22"
       "A2 calle calle3 calle3 calle3 calle3 calle3 calle3 calle3 calle3 calle3 calle3 calle2 A23"
       "muro6 calle muro2 muro2 muro2 muro2 muro2 muro2 muro2 muro2 muro2 muro2 calle2 muro5";
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  @media (max-width: 992px) {
+    .panel-reservas {
+        height: 150%;
+    }
   }
   
   .calle { grid-area: calle;}
@@ -1094,7 +1133,36 @@ select {
     transform: scale(2); /* Aumenta el tamaño al 120% */
 }
 
+.vehicul-container select {
+    background-color: #fff;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 5px 15px 5px 5px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+  }
 
+.space {
+    background-color: #e9e9e9;
+    height: 100%;
+    width: 100%;
+    
+  }
+  
+  .space.selected {
+    background-color: #2bd62b;
+  }
+  
+  .space.sold {
+    background-color: #fff;
+  }
+  
+  .space:not(.sold):hover {
+    cursor: pointer;
+    transform: scale(1.2);
+  }
 
 
 
@@ -1228,3 +1296,44 @@ select {
     margin: 100px;
   }
   
+
+  /*___________________________________________________________________________________________________*/
+  /*Estilos para botón de LogOut*/
+
+  /* From Uiverse.io by alexroumi */ 
+.button_logOut {
+    padding: 5px 15px;
+    border: unset;
+    border-radius: 15px;
+    color: #212121;
+    z-index: 1;
+    background: #e8e8e8;
+    position: relative;
+    font-weight: 600;
+    font-size: 17px;
+    transition: all 250ms;
+    overflow: hidden;
+}
+   
+.button_logOut::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    border-radius: 15px;
+    background-color: #004280;
+    z-index: -1;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    transition: all 250ms
+}
+   
+.button_logOut:hover {
+    color: #e8e8e8;
+}
+   
+.button_logOut:hover::before {
+    width: 100%;
+}

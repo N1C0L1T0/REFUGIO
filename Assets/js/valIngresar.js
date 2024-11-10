@@ -38,9 +38,9 @@ function validarCampo(){
             Contraseña: passwordVal,
         };
 
-        // se envia la información a la BD por una petición fech
-        loginPost(dicc_datos);
-        return true
+        /* se envia la información a la BD por una petición fech
+        loginPost(dicc_datos);*/
+        return true, dicc_datos
     } else {
         return false
     }
